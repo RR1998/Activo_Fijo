@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="60f2a2c456784f4ea82a8d89827f79f1" Name="Diagram1">
+        <EntityTypeShape EntityType="ACTIVO_FIJOModel.ADMINISTRAR" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTIVO_FIJOModel.BIEN" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTIVO_FIJOModel.ESTADO" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTIVO_FIJOModel.MARCA" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTIVO_FIJOModel.TIPO" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACTIVO_FIJOModel.USUARIO" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="ACTIVO_FIJOModel.FK__ADMINISTR__IDBie__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTIVO_FIJOModel.FK__ADMINISTR__IDUsu__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTIVO_FIJOModel.FK__BIEN__IDESTADO__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTIVO_FIJOModel.FK__BIEN__IDTIPO__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="ACTIVO_FIJOModel.FK__BIEN__IDTIPO__48CFD27E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

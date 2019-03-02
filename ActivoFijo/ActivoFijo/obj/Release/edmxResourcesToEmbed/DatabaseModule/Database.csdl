@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="activo_fijoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="administrar">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="IDBien" />
+    </Key>
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IDBien" Type="Int32" Nullable="false" />
+    <Property Name="FECHACOMPRA" Type="DateTime" />
+    <Property Name="Costo" Type="Single" Nullable="false" />
+    <Property Name="CANTIDAD" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="Self.administrar_ibfk_1" FromRole="administrar" ToRole="usuario" />
+    <NavigationProperty Name="bien" Relationship="Self.administrar_ibfk_2" FromRole="administrar" ToRole="bien" />
+  </EntityType>
+  <EntityType Name="bien">
+    <Key>
+      <PropertyRef Name="IDBIEN" />
+    </Key>
+    <Property Name="IDBIEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDASIGNADO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="COLOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDMARCA" Type="Int32" Nullable="false" />
+    <Property Name="IDTIPO" Type="Int32" Nullable="false" />
+    <Property Name="PORCENTAGEDEPRECIACION" Type="Single" Nullable="false" />
+    <NavigationProperty Name="administrars" Relationship="Self.administrar_ibfk_2" FromRole="bien" ToRole="administrar" />
+    <NavigationProperty Name="marca" Relationship="Self.bien_ibfk_1" FromRole="bien" ToRole="marca" />
+    <NavigationProperty Name="tipo" Relationship="Self.bien_ibfk_2" FromRole="bien" ToRole="tipo" />
+  </EntityType>
+  <EntityType Name="deleteadministrar">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UDeleted_By" Type="Int32" Nullable="false" />
+    <Property Name="IDUsuarioA" Type="Int32" Nullable="false" />
+    <Property Name="IDBienA" Type="Int32" Nullable="false" />
+    <Property Name="FechaCompraA" Type="DateTime" Nullable="false" />
+    <Property Name="CostoA" Type="Single" Nullable="false" />
+    <Property Name="CantidadA" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deletemarca">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Deleted_by" Type="Int32" Nullable="false" />
+    <Property Name="IDMarca" Type="Int32" Nullable="false" />
+    <Property Name="MARCAA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deletetipo">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Deleted_by" Type="Int32" Nullable="false" />
+    <Property Name="IDTipo" Type="Int32" Nullable="false" />
+    <Property Name="TIPOA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deleteusuario">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Deleted_by" Type="Int32" Nullable="false" />
+    <Property Name="IDUsuarioEliminado" Type="Int32" Nullable="false" />
+    <Property Name="UsernameA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUIA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="insertaministrar">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Inserted_By" Type="Int32" Nullable="false" />
+    <Property Name="IDUsuarioN" Type="Int32" Nullable="false" />
+    <Property Name="IDBienN" Type="Int32" Nullable="false" />
+    <Property Name="FechaCompraN" Type="DateTime" Nullable="false" />
+    <Property Name="CostoN" Type="Single" Nullable="false" />
+    <Property Name="CantidadN" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="insertmarca">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Inserted_by" Type="Int32" Nullable="false" />
+    <Property Name="IDMarca" Type="Int32" Nullable="false" />
+    <Property Name="MARCAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inserttipo">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Inserted_by" Type="Int32" Nullable="false" />
+    <Property Name="IDTipo" Type="Int32" Nullable="false" />
+    <Property Name="TIPON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="insertusuario">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Inserted_by" Type="Int32" Nullable="false" />
+    <Property Name="IDUsuarioInsertado" Type="Int32" Nullable="false" />
+    <Property Name="UsernameN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUIN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="marca">
+    <Key>
+      <PropertyRef Name="IDMARCA" />
+    </Key>
+    <Property Name="IDMARCA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBREMARCA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="biens" Relationship="Self.bien_ibfk_1" FromRole="marca" ToRole="bien" />
+  </EntityType>
+  <EntityType Name="tipo">
+    <Key>
+      <PropertyRef Name="IDTIPO" />
+    </Key>
+    <Property Name="IDTIPO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TIPO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="biens" Relationship="Self.bien_ibfk_2" FromRole="tipo" ToRole="bien" />
+  </EntityType>
+  <EntityType Name="updateadministrar">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Updated_By" Type="Int32" Nullable="false" />
+    <Property Name="IDUsuarioA" Type="Int32" Nullable="false" />
+    <Property Name="IDUsuarioN" Type="Int32" Nullable="false" />
+    <Property Name="IDBienA" Type="Int32" Nullable="false" />
+    <Property Name="IDBienN" Type="Int32" Nullable="false" />
+    <Property Name="FechaCompraA" Type="DateTime" Nullable="false" />
+    <Property Name="FechaCompraN" Type="DateTime" Nullable="false" />
+    <Property Name="CostoA" Type="Single" Nullable="false" />
+    <Property Name="CostoN" Type="Single" Nullable="false" />
+    <Property Name="CantidadA" Type="Int32" Nullable="false" />
+    <Property Name="CantidadN" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="updatemarca">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Updated_by" Type="Int32" Nullable="false" />
+    <Property Name="IDMarca" Type="Int32" Nullable="false" />
+    <Property Name="MARCAA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MARCAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="updatetipo">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Updated_by" Type="Int32" Nullable="false" />
+    <Property Name="IDTipo" Type="Int32" Nullable="false" />
+    <Property Name="TIPOA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TIPON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="updateusuario">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Updated_by" Type="Int32" Nullable="false" />
+    <Property Name="IDUsuarioActualizado" Type="Int32" Nullable="false" />
+    <Property Name="UsernameA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UsernameN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUIA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUIN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCambio" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USUARIO1" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLAVE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="administrars" Relationship="Self.administrar_ibfk_1" FromRole="usuario" ToRole="administrar" />
+  </EntityType>
+  <Association Name="administrar_ibfk_1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="administrar" Type="Self.administrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="administrar">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="administrar_ibfk_2">
+    <End Role="bien" Type="Self.bien" Multiplicity="1" />
+    <End Role="administrar" Type="Self.administrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bien">
+        <PropertyRef Name="IDBIEN" />
+      </Principal>
+      <Dependent Role="administrar">
+        <PropertyRef Name="IDBien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bien_ibfk_1">
+    <End Role="marca" Type="Self.marca" Multiplicity="1" />
+    <End Role="bien" Type="Self.bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marca">
+        <PropertyRef Name="IDMARCA" />
+      </Principal>
+      <Dependent Role="bien">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bien_ibfk_2">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="1" />
+    <End Role="bien" Type="Self.bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="IDTIPO" />
+      </Principal>
+      <Dependent Role="bien">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="activo_fijoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="administrars" EntityType="Self.administrar" />
+    <EntitySet Name="biens" EntityType="Self.bien" />
+    <EntitySet Name="deleteadministrars" EntityType="Self.deleteadministrar" />
+    <EntitySet Name="deletemarcas" EntityType="Self.deletemarca" />
+    <EntitySet Name="deletetipoes" EntityType="Self.deletetipo" />
+    <EntitySet Name="deleteusuarios" EntityType="Self.deleteusuario" />
+    <EntitySet Name="insertaministrars" EntityType="Self.insertaministrar" />
+    <EntitySet Name="insertmarcas" EntityType="Self.insertmarca" />
+    <EntitySet Name="inserttipoes" EntityType="Self.inserttipo" />
+    <EntitySet Name="insertusuarios" EntityType="Self.insertusuario" />
+    <EntitySet Name="marcas" EntityType="Self.marca" />
+    <EntitySet Name="tipoes" EntityType="Self.tipo" />
+    <EntitySet Name="updateadministrars" EntityType="Self.updateadministrar" />
+    <EntitySet Name="updatemarcas" EntityType="Self.updatemarca" />
+    <EntitySet Name="updatetipoes" EntityType="Self.updatetipo" />
+    <EntitySet Name="updateusuarios" EntityType="Self.updateusuario" />
+    <EntitySet Name="usuarios" EntityType="Self.usuario" />
+    <AssociationSet Name="administrar_ibfk_1" Association="Self.administrar_ibfk_1">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="administrar" EntitySet="administrars" />
+    </AssociationSet>
+    <AssociationSet Name="administrar_ibfk_2" Association="Self.administrar_ibfk_2">
+      <End Role="bien" EntitySet="biens" />
+      <End Role="administrar" EntitySet="administrars" />
+    </AssociationSet>
+    <AssociationSet Name="bien_ibfk_1" Association="Self.bien_ibfk_1">
+      <End Role="marca" EntitySet="marcas" />
+      <End Role="bien" EntitySet="biens" />
+    </AssociationSet>
+    <AssociationSet Name="bien_ibfk_2" Association="Self.bien_ibfk_2">
+      <End Role="tipo" EntitySet="tipoes" />
+      <End Role="bien" EntitySet="biens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

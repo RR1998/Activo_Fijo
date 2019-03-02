@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ACTIVO_FIJOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMINISTRAR">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="IDBien" />
+    </Key>
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IDBien" Type="Int32" Nullable="false" />
+    <Property Name="FECHAADQUISISCION" Type="DateTime" Precision="0" />
+    <Property Name="FECHACOMPRA" Type="DateTime" Precision="0" />
+    <Property Name="Costo" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="CANTIDAD" Type="Int32" />
+    <NavigationProperty Name="BIEN" Relationship="Self.FK__ADMINISTR__IDBie__46E78A0C" FromRole="ADMINISTRAR" ToRole="BIEN" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK__ADMINISTR__IDUsu__45F365D3" FromRole="ADMINISTRAR" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="BIEN">
+    <Key>
+      <PropertyRef Name="IDBIEN" />
+    </Key>
+    <Property Name="IDBIEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDASIGNADO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="COLOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDMARCA" Type="Int32" Nullable="false" />
+    <Property Name="IDTIPO" Type="Int32" Nullable="false" />
+    <Property Name="IDESTADO" Type="Int32" Nullable="false" />
+    <Property Name="VIDAUTIL" Type="Int32" Nullable="false" />
+    <Property Name="PORCENTAGEDEPRECIACION" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+    <NavigationProperty Name="ADMINISTRARs" Relationship="Self.FK__ADMINISTR__IDBie__46E78A0C" FromRole="BIEN" ToRole="ADMINISTRAR" />
+    <NavigationProperty Name="ESTADO" Relationship="Self.FK__BIEN__IDESTADO__49C3F6B7" FromRole="BIEN" ToRole="ESTADO" />
+    <NavigationProperty Name="MARCA" Relationship="Self.FK__BIEN__IDTIPO__47DBAE45" FromRole="BIEN" ToRole="MARCA" />
+    <NavigationProperty Name="TIPO" Relationship="Self.FK__BIEN__IDTIPO__48CFD27E" FromRole="BIEN" ToRole="TIPO" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ESTADO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BIENs" Relationship="Self.FK__BIEN__IDESTADO__49C3F6B7" FromRole="ESTADO" ToRole="BIEN" />
+  </EntityType>
+  <EntityType Name="MARCA">
+    <Key>
+      <PropertyRef Name="IDMARCA" />
+    </Key>
+    <Property Name="IDMARCA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBREMARCA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BIENs" Relationship="Self.FK__BIEN__IDTIPO__47DBAE45" FromRole="MARCA" ToRole="BIEN" />
+  </EntityType>
+  <EntityType Name="TIPO">
+    <Key>
+      <PropertyRef Name="IDTIPO" />
+    </Key>
+    <Property Name="IDTIPO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TIPO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BIENs" Relationship="Self.FK__BIEN__IDTIPO__48CFD27E" FromRole="TIPO" ToRole="BIEN" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USUARIO1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLAVE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUI" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ADMINISTRARs" Relationship="Self.FK__ADMINISTR__IDUsu__45F365D3" FromRole="USUARIO" ToRole="ADMINISTRAR" />
+  </EntityType>
+  <Association Name="FK__ADMINISTR__IDBie__46E78A0C">
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="1" />
+    <End Role="ADMINISTRAR" Type="Self.ADMINISTRAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BIEN">
+        <PropertyRef Name="IDBIEN" />
+      </Principal>
+      <Dependent Role="ADMINISTRAR">
+        <PropertyRef Name="IDBien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADMINISTR__IDUsu__45F365D3">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="ADMINISTRAR" Type="Self.ADMINISTRAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="ADMINISTRAR">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIEN__IDESTADO__49C3F6B7">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="BIEN">
+        <PropertyRef Name="IDESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIEN__IDTIPO__47DBAE45">
+    <End Role="MARCA" Type="Self.MARCA" Multiplicity="1" />
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="IDMARCA" />
+      </Principal>
+      <Dependent Role="BIEN">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIEN__IDTIPO__48CFD27E">
+    <End Role="TIPO" Type="Self.TIPO" Multiplicity="1" />
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO">
+        <PropertyRef Name="IDTIPO" />
+      </Principal>
+      <Dependent Role="BIEN">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="activo_fijoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINISTRARs" EntityType="Self.ADMINISTRAR" />
+    <EntitySet Name="BIENs" EntityType="Self.BIEN" />
+    <EntitySet Name="ESTADOes" EntityType="Self.ESTADO" />
+    <EntitySet Name="MARCAs" EntityType="Self.MARCA" />
+    <EntitySet Name="TIPOes" EntityType="Self.TIPO" />
+    <EntitySet Name="USUARIOs" EntityType="Self.USUARIO" />
+    <AssociationSet Name="FK__ADMINISTR__IDBie__46E78A0C" Association="Self.FK__ADMINISTR__IDBie__46E78A0C">
+      <End Role="BIEN" EntitySet="BIENs" />
+      <End Role="ADMINISTRAR" EntitySet="ADMINISTRARs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADMINISTR__IDUsu__45F365D3" Association="Self.FK__ADMINISTR__IDUsu__45F365D3">
+      <End Role="USUARIO" EntitySet="USUARIOs" />
+      <End Role="ADMINISTRAR" EntitySet="ADMINISTRARs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIEN__IDESTADO__49C3F6B7" Association="Self.FK__BIEN__IDESTADO__49C3F6B7">
+      <End Role="ESTADO" EntitySet="ESTADOes" />
+      <End Role="BIEN" EntitySet="BIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIEN__IDTIPO__47DBAE45" Association="Self.FK__BIEN__IDTIPO__47DBAE45">
+      <End Role="MARCA" EntitySet="MARCAs" />
+      <End Role="BIEN" EntitySet="BIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIEN__IDTIPO__48CFD27E" Association="Self.FK__BIEN__IDTIPO__48CFD27E">
+      <End Role="TIPO" EntitySet="TIPOes" />
+      <End Role="BIEN" EntitySet="BIENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

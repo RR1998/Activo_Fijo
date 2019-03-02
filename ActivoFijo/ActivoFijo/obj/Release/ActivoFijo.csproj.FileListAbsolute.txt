@@ -1,0 +1,8 @@
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.exe.config
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.Login_and_Register.Login.resources
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.Login_and_Register.MainMenu.resources
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.Login_and_Register.Registro.resources
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.Properties.Resources.resources
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.csproj.GenerateResource.cache
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.csproj.CoreCompileInputs.cache
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Release\ActivoFijo.csprojAssemblyReference.cache

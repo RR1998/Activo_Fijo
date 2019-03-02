@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Activo Fijo", "Activo Fijo\Activo Fijo.vdproj", "{5B4ECD7A-A0A6-4973-8234-090CCD8F47FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B4ECD7A-A0A6-4973-8234-090CCD8F47FF}.Debug|Default.ActiveCfg = Debug
+		{5B4ECD7A-A0A6-4973-8234-090CCD8F47FF}.Debug|Default.Build.0 = Debug
+		{5B4ECD7A-A0A6-4973-8234-090CCD8F47FF}.Release|Default.ActiveCfg = Release
+		{5B4ECD7A-A0A6-4973-8234-090CCD8F47FF}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {386D7405-5B80-47CB-8DA8-B97A410E85F7}
+	EndGlobalSection
+EndGlobal

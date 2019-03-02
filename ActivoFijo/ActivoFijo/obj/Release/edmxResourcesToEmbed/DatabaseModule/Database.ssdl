@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="activo_fijoModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="administrar">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="IDBien" />
+    </Key>
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="IDBien" Type="int" Nullable="false" />
+    <Property Name="FECHACOMPRA" Type="date" />
+    <Property Name="Costo" Type="float" Nullable="false" />
+    <Property Name="CANTIDAD" Type="int" />
+  </EntityType>
+  <EntityType Name="bien">
+    <Key>
+      <PropertyRef Name="IDBIEN" />
+    </Key>
+    <Property Name="IDBIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDASIGNADO" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="COLOR" Type="varchar" MaxLength="20" />
+    <Property Name="IDMARCA" Type="int" Nullable="false" />
+    <Property Name="IDTIPO" Type="int" Nullable="false" />
+    <Property Name="PORCENTAGEDEPRECIACION" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deleteadministrar">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UDeleted_By" Type="int" Nullable="false" />
+    <Property Name="IDUsuarioA" Type="int" Nullable="false" />
+    <Property Name="IDBienA" Type="int" Nullable="false" />
+    <Property Name="FechaCompraA" Type="date" Nullable="false" />
+    <Property Name="CostoA" Type="float" Nullable="false" />
+    <Property Name="CantidadA" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deletemarca">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Deleted_by" Type="int" Nullable="false" />
+    <Property Name="IDMarca" Type="int" Nullable="false" />
+    <Property Name="MARCAA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deletetipo">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Deleted_by" Type="int" Nullable="false" />
+    <Property Name="IDTipo" Type="int" Nullable="false" />
+    <Property Name="TIPOA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deleteusuario">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Deleted_by" Type="int" Nullable="false" />
+    <Property Name="IDUsuarioEliminado" Type="int" Nullable="false" />
+    <Property Name="UsernameA" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PasswordA" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DUIA" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="insertaministrar">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inserted_By" Type="int" Nullable="false" />
+    <Property Name="IDUsuarioN" Type="int" Nullable="false" />
+    <Property Name="IDBienN" Type="int" Nullable="false" />
+    <Property Name="FechaCompraN" Type="date" Nullable="false" />
+    <Property Name="CostoN" Type="float" Nullable="false" />
+    <Property Name="CantidadN" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="insertmarca">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inserted_by" Type="int" Nullable="false" />
+    <Property Name="IDMarca" Type="int" Nullable="false" />
+    <Property Name="MARCAN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inserttipo">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inserted_by" Type="int" Nullable="false" />
+    <Property Name="IDTipo" Type="int" Nullable="false" />
+    <Property Name="TIPON" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="insertusuario">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inserted_by" Type="int" Nullable="false" />
+    <Property Name="IDUsuarioInsertado" Type="int" Nullable="false" />
+    <Property Name="UsernameN" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PasswordN" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreN" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DUIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="marca">
+    <Key>
+      <PropertyRef Name="IDMARCA" />
+    </Key>
+    <Property Name="IDMARCA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBREMARCA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tipo">
+    <Key>
+      <PropertyRef Name="IDTIPO" />
+    </Key>
+    <Property Name="IDTIPO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="updateadministrar">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Updated_By" Type="int" Nullable="false" />
+    <Property Name="IDUsuarioA" Type="int" Nullable="false" />
+    <Property Name="IDUsuarioN" Type="int" Nullable="false" />
+    <Property Name="IDBienA" Type="int" Nullable="false" />
+    <Property Name="IDBienN" Type="int" Nullable="false" />
+    <Property Name="FechaCompraA" Type="date" Nullable="false" />
+    <Property Name="FechaCompraN" Type="date" Nullable="false" />
+    <Property Name="CostoA" Type="float" Nullable="false" />
+    <Property Name="CostoN" Type="float" Nullable="false" />
+    <Property Name="CantidadA" Type="int" Nullable="false" />
+    <Property Name="CantidadN" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="updatemarca">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Updated_by" Type="int" Nullable="false" />
+    <Property Name="IDMarca" Type="int" Nullable="false" />
+    <Property Name="MARCAA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MARCAN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="updatetipo">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Updated_by" Type="int" Nullable="false" />
+    <Property Name="IDTipo" Type="int" Nullable="false" />
+    <Property Name="TIPOA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPON" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="updateusuario">
+    <Key>
+      <PropertyRef Name="IDCambio" />
+    </Key>
+    <Property Name="IDCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Updated_by" Type="int" Nullable="false" />
+    <Property Name="IDUsuarioActualizado" Type="int" Nullable="false" />
+    <Property Name="UsernameA" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UsernameN" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PasswordA" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PasswordN" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreA" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreN" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DUIA" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="DUIN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaCambio" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="CLAVE" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DUI" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="administrar_ibfk_1">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="administrar" Type="Self.administrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="administrar">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="administrar_ibfk_2">
+    <End Role="bien" Type="Self.bien" Multiplicity="1" />
+    <End Role="administrar" Type="Self.administrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bien">
+        <PropertyRef Name="IDBIEN" />
+      </Principal>
+      <Dependent Role="administrar">
+        <PropertyRef Name="IDBien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bien_ibfk_1">
+    <End Role="marca" Type="Self.marca" Multiplicity="1" />
+    <End Role="bien" Type="Self.bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marca">
+        <PropertyRef Name="IDMARCA" />
+      </Principal>
+      <Dependent Role="bien">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bien_ibfk_2">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="1" />
+    <End Role="bien" Type="Self.bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="IDTIPO" />
+      </Principal>
+      <Dependent Role="bien">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="activo_fijoModelStoreContainer">
+    <EntitySet Name="administrar" EntityType="Self.administrar" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="bien" EntityType="Self.bien" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="deleteadministrar" EntityType="Self.deleteadministrar" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="deletemarca" EntityType="Self.deletemarca" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="deletetipo" EntityType="Self.deletetipo" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="deleteusuario" EntityType="Self.deleteusuario" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="insertaministrar" EntityType="Self.insertaministrar" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="insertmarca" EntityType="Self.insertmarca" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="inserttipo" EntityType="Self.inserttipo" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="insertusuario" EntityType="Self.insertusuario" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="marca" EntityType="Self.marca" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="tipo" EntityType="Self.tipo" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="updateadministrar" EntityType="Self.updateadministrar" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="updatemarca" EntityType="Self.updatemarca" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="updatetipo" EntityType="Self.updatetipo" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="updateusuario" EntityType="Self.updateusuario" Schema="activo_fijo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="activo_fijo" store:Type="Tables" />
+    <AssociationSet Name="administrar_ibfk_1" Association="Self.administrar_ibfk_1">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="administrar" EntitySet="administrar" />
+    </AssociationSet>
+    <AssociationSet Name="administrar_ibfk_2" Association="Self.administrar_ibfk_2">
+      <End Role="bien" EntitySet="bien" />
+      <End Role="administrar" EntitySet="administrar" />
+    </AssociationSet>
+    <AssociationSet Name="bien_ibfk_1" Association="Self.bien_ibfk_1">
+      <End Role="marca" EntitySet="marca" />
+      <End Role="bien" EntitySet="bien" />
+    </AssociationSet>
+    <AssociationSet Name="bien_ibfk_2" Association="Self.bien_ibfk_2">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="bien" EntitySet="bien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

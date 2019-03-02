@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="activo_fijoModelStoreContainer" CdmEntityContainer="activo_fijoEntities">
+    <EntitySetMapping Name="administrars">
+      <EntityTypeMapping TypeName="activo_fijoModel.administrar">
+        <MappingFragment StoreEntitySet="administrar">
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="IDBien" ColumnName="IDBien" />
+          <ScalarProperty Name="FECHACOMPRA" ColumnName="FECHACOMPRA" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="biens">
+      <EntityTypeMapping TypeName="activo_fijoModel.bien">
+        <MappingFragment StoreEntitySet="bien">
+          <ScalarProperty Name="IDBIEN" ColumnName="IDBIEN" />
+          <ScalarProperty Name="IDASIGNADO" ColumnName="IDASIGNADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+          <ScalarProperty Name="IDMARCA" ColumnName="IDMARCA" />
+          <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+          <ScalarProperty Name="PORCENTAGEDEPRECIACION" ColumnName="PORCENTAGEDEPRECIACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deleteadministrars">
+      <EntityTypeMapping TypeName="activo_fijoModel.deleteadministrar">
+        <MappingFragment StoreEntitySet="deleteadministrar">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="UDeleted_By" ColumnName="UDeleted_By" />
+          <ScalarProperty Name="IDUsuarioA" ColumnName="IDUsuarioA" />
+          <ScalarProperty Name="IDBienA" ColumnName="IDBienA" />
+          <ScalarProperty Name="FechaCompraA" ColumnName="FechaCompraA" />
+          <ScalarProperty Name="CostoA" ColumnName="CostoA" />
+          <ScalarProperty Name="CantidadA" ColumnName="CantidadA" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deletemarcas">
+      <EntityTypeMapping TypeName="activo_fijoModel.deletemarca">
+        <MappingFragment StoreEntitySet="deletemarca">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Deleted_by" ColumnName="Deleted_by" />
+          <ScalarProperty Name="IDMarca" ColumnName="IDMarca" />
+          <ScalarProperty Name="MARCAA" ColumnName="MARCAA" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deletetipoes">
+      <EntityTypeMapping TypeName="activo_fijoModel.deletetipo">
+        <MappingFragment StoreEntitySet="deletetipo">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Deleted_by" ColumnName="Deleted_by" />
+          <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+          <ScalarProperty Name="TIPOA" ColumnName="TIPOA" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deleteusuarios">
+      <EntityTypeMapping TypeName="activo_fijoModel.deleteusuario">
+        <MappingFragment StoreEntitySet="deleteusuario">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Deleted_by" ColumnName="Deleted_by" />
+          <ScalarProperty Name="IDUsuarioEliminado" ColumnName="IDUsuarioEliminado" />
+          <ScalarProperty Name="UsernameA" ColumnName="UsernameA" />
+          <ScalarProperty Name="PasswordA" ColumnName="PasswordA" />
+          <ScalarProperty Name="NombreA" ColumnName="NombreA" />
+          <ScalarProperty Name="DUIA" ColumnName="DUIA" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="insertaministrars">
+      <EntityTypeMapping TypeName="activo_fijoModel.insertaministrar">
+        <MappingFragment StoreEntitySet="insertaministrar">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Inserted_By" ColumnName="Inserted_By" />
+          <ScalarProperty Name="IDUsuarioN" ColumnName="IDUsuarioN" />
+          <ScalarProperty Name="IDBienN" ColumnName="IDBienN" />
+          <ScalarProperty Name="FechaCompraN" ColumnName="FechaCompraN" />
+          <ScalarProperty Name="CostoN" ColumnName="CostoN" />
+          <ScalarProperty Name="CantidadN" ColumnName="CantidadN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="insertmarcas">
+      <EntityTypeMapping TypeName="activo_fijoModel.insertmarca">
+        <MappingFragment StoreEntitySet="insertmarca">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Inserted_by" ColumnName="Inserted_by" />
+          <ScalarProperty Name="IDMarca" ColumnName="IDMarca" />
+          <ScalarProperty Name="MARCAN" ColumnName="MARCAN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inserttipoes">
+      <EntityTypeMapping TypeName="activo_fijoModel.inserttipo">
+        <MappingFragment StoreEntitySet="inserttipo">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Inserted_by" ColumnName="Inserted_by" />
+          <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+          <ScalarProperty Name="TIPON" ColumnName="TIPON" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="insertusuarios">
+      <EntityTypeMapping TypeName="activo_fijoModel.insertusuario">
+        <MappingFragment StoreEntitySet="insertusuario">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Inserted_by" ColumnName="Inserted_by" />
+          <ScalarProperty Name="IDUsuarioInsertado" ColumnName="IDUsuarioInsertado" />
+          <ScalarProperty Name="UsernameN" ColumnName="UsernameN" />
+          <ScalarProperty Name="PasswordN" ColumnName="PasswordN" />
+          <ScalarProperty Name="NombreN" ColumnName="NombreN" />
+          <ScalarProperty Name="DUIN" ColumnName="DUIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcas">
+      <EntityTypeMapping TypeName="activo_fijoModel.marca">
+        <MappingFragment StoreEntitySet="marca">
+          <ScalarProperty Name="IDMARCA" ColumnName="IDMARCA" />
+          <ScalarProperty Name="NOMBREMARCA" ColumnName="NOMBREMARCA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoes">
+      <EntityTypeMapping TypeName="activo_fijoModel.tipo">
+        <MappingFragment StoreEntitySet="tipo">
+          <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+          <ScalarProperty Name="TIPO1" ColumnName="TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="updateadministrars">
+      <EntityTypeMapping TypeName="activo_fijoModel.updateadministrar">
+        <MappingFragment StoreEntitySet="updateadministrar">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="IDUsuarioA" ColumnName="IDUsuarioA" />
+          <ScalarProperty Name="IDUsuarioN" ColumnName="IDUsuarioN" />
+          <ScalarProperty Name="IDBienA" ColumnName="IDBienA" />
+          <ScalarProperty Name="IDBienN" ColumnName="IDBienN" />
+          <ScalarProperty Name="FechaCompraA" ColumnName="FechaCompraA" />
+          <ScalarProperty Name="FechaCompraN" ColumnName="FechaCompraN" />
+          <ScalarProperty Name="CostoA" ColumnName="CostoA" />
+          <ScalarProperty Name="CostoN" ColumnName="CostoN" />
+          <ScalarProperty Name="CantidadA" ColumnName="CantidadA" />
+          <ScalarProperty Name="CantidadN" ColumnName="CantidadN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="updatemarcas">
+      <EntityTypeMapping TypeName="activo_fijoModel.updatemarca">
+        <MappingFragment StoreEntitySet="updatemarca">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="IDMarca" ColumnName="IDMarca" />
+          <ScalarProperty Name="MARCAA" ColumnName="MARCAA" />
+          <ScalarProperty Name="MARCAN" ColumnName="MARCAN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="updatetipoes">
+      <EntityTypeMapping TypeName="activo_fijoModel.updatetipo">
+        <MappingFragment StoreEntitySet="updatetipo">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+          <ScalarProperty Name="TIPOA" ColumnName="TIPOA" />
+          <ScalarProperty Name="TIPON" ColumnName="TIPON" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="updateusuarios">
+      <EntityTypeMapping TypeName="activo_fijoModel.updateusuario">
+        <MappingFragment StoreEntitySet="updateusuario">
+          <ScalarProperty Name="IDCambio" ColumnName="IDCambio" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="IDUsuarioActualizado" ColumnName="IDUsuarioActualizado" />
+          <ScalarProperty Name="UsernameA" ColumnName="UsernameA" />
+          <ScalarProperty Name="UsernameN" ColumnName="UsernameN" />
+          <ScalarProperty Name="PasswordA" ColumnName="PasswordA" />
+          <ScalarProperty Name="PasswordN" ColumnName="PasswordN" />
+          <ScalarProperty Name="NombreA" ColumnName="NombreA" />
+          <ScalarProperty Name="NombreN" ColumnName="NombreN" />
+          <ScalarProperty Name="DUIA" ColumnName="DUIA" />
+          <ScalarProperty Name="DUIN" ColumnName="DUIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="activo_fijoModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO" />
+          <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DUI" ColumnName="DUI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

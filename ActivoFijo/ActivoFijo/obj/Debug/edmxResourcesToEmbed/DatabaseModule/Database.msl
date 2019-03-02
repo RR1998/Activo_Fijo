@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ACTIVO_FIJOModelStoreContainer" CdmEntityContainer="activo_fijoEntities">
+    <EntitySetMapping Name="ADMINISTRARs">
+      <EntityTypeMapping TypeName="ACTIVO_FIJOModel.ADMINISTRAR">
+        <MappingFragment StoreEntitySet="ADMINISTRAR">
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="IDBien" ColumnName="IDBien" />
+          <ScalarProperty Name="FECHAADQUISISCION" ColumnName="FECHAADQUISISCION" />
+          <ScalarProperty Name="FECHACOMPRA" ColumnName="FECHACOMPRA" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BIENs">
+      <EntityTypeMapping TypeName="ACTIVO_FIJOModel.BIEN">
+        <MappingFragment StoreEntitySet="BIEN">
+          <ScalarProperty Name="IDBIEN" ColumnName="IDBIEN" />
+          <ScalarProperty Name="IDASIGNADO" ColumnName="IDASIGNADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+          <ScalarProperty Name="IDMARCA" ColumnName="IDMARCA" />
+          <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+          <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+          <ScalarProperty Name="VIDAUTIL" ColumnName="VIDAUTIL" />
+          <ScalarProperty Name="PORCENTAGEDEPRECIACION" ColumnName="PORCENTAGEDEPRECIACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADOes">
+      <EntityTypeMapping TypeName="ACTIVO_FIJOModel.ESTADO">
+        <MappingFragment StoreEntitySet="ESTADO">
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="ESTADO1" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARCAs">
+      <EntityTypeMapping TypeName="ACTIVO_FIJOModel.MARCA">
+        <MappingFragment StoreEntitySet="MARCA">
+          <ScalarProperty Name="IDMARCA" ColumnName="IDMARCA" />
+          <ScalarProperty Name="NOMBREMARCA" ColumnName="NOMBREMARCA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOes">
+      <EntityTypeMapping TypeName="ACTIVO_FIJOModel.TIPO">
+        <MappingFragment StoreEntitySet="TIPO">
+          <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+          <ScalarProperty Name="TIPO1" ColumnName="TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOs">
+      <EntityTypeMapping TypeName="ACTIVO_FIJOModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO" />
+          <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DUI" ColumnName="DUI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

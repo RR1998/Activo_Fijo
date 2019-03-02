@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ACTIVO_FIJOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMINISTRAR">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="IDBien" />
+    </Key>
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="IDBien" Type="int" Nullable="false" />
+    <Property Name="FECHAADQUISISCION" Type="date" />
+    <Property Name="FECHACOMPRA" Type="date" />
+    <Property Name="Costo" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="CANTIDAD" Type="int" />
+  </EntityType>
+  <EntityType Name="BIEN">
+    <Key>
+      <PropertyRef Name="IDBIEN" />
+    </Key>
+    <Property Name="IDBIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDASIGNADO" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="COLOR" Type="varchar" MaxLength="20" />
+    <Property Name="IDMARCA" Type="int" Nullable="false" />
+    <Property Name="IDTIPO" Type="int" Nullable="false" />
+    <Property Name="IDESTADO" Type="int" Nullable="false" />
+    <Property Name="VIDAUTIL" Type="int" Nullable="false" />
+    <Property Name="PORCENTAGEDEPRECIACION" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MARCA">
+    <Key>
+      <PropertyRef Name="IDMARCA" />
+    </Key>
+    <Property Name="IDMARCA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBREMARCA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TIPO">
+    <Key>
+      <PropertyRef Name="IDTIPO" />
+    </Key>
+    <Property Name="IDTIPO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CLAVE" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DUI" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__ADMINISTR__IDBie__46E78A0C">
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="1" />
+    <End Role="ADMINISTRAR" Type="Self.ADMINISTRAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BIEN">
+        <PropertyRef Name="IDBIEN" />
+      </Principal>
+      <Dependent Role="ADMINISTRAR">
+        <PropertyRef Name="IDBien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADMINISTR__IDUsu__45F365D3">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="ADMINISTRAR" Type="Self.ADMINISTRAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="ADMINISTRAR">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIEN__IDESTADO__49C3F6B7">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="BIEN">
+        <PropertyRef Name="IDESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIEN__IDTIPO__47DBAE45">
+    <End Role="MARCA" Type="Self.MARCA" Multiplicity="1" />
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="IDMARCA" />
+      </Principal>
+      <Dependent Role="BIEN">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIEN__IDTIPO__48CFD27E">
+    <End Role="TIPO" Type="Self.TIPO" Multiplicity="1" />
+    <End Role="BIEN" Type="Self.BIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO">
+        <PropertyRef Name="IDTIPO" />
+      </Principal>
+      <Dependent Role="BIEN">
+        <PropertyRef Name="IDTIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ACTIVO_FIJOModelStoreContainer">
+    <EntitySet Name="ADMINISTRAR" EntityType="Self.ADMINISTRAR" Schema="ACTIVO_FIJO" store:Type="Tables" />
+    <EntitySet Name="BIEN" EntityType="Self.BIEN" Schema="ACTIVO_FIJO" store:Type="Tables" />
+    <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="ACTIVO_FIJO" store:Type="Tables" />
+    <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="ACTIVO_FIJO" store:Type="Tables" />
+    <EntitySet Name="TIPO" EntityType="Self.TIPO" Schema="ACTIVO_FIJO" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="ACTIVO_FIJO" store:Type="Tables" />
+    <AssociationSet Name="FK__ADMINISTR__IDBie__46E78A0C" Association="Self.FK__ADMINISTR__IDBie__46E78A0C">
+      <End Role="BIEN" EntitySet="BIEN" />
+      <End Role="ADMINISTRAR" EntitySet="ADMINISTRAR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADMINISTR__IDUsu__45F365D3" Association="Self.FK__ADMINISTR__IDUsu__45F365D3">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="ADMINISTRAR" EntitySet="ADMINISTRAR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIEN__IDESTADO__49C3F6B7" Association="Self.FK__BIEN__IDESTADO__49C3F6B7">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="BIEN" EntitySet="BIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIEN__IDTIPO__47DBAE45" Association="Self.FK__BIEN__IDTIPO__47DBAE45">
+      <End Role="MARCA" EntitySet="MARCA" />
+      <End Role="BIEN" EntitySet="BIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIEN__IDTIPO__48CFD27E" Association="Self.FK__BIEN__IDTIPO__48CFD27E">
+      <End Role="TIPO" EntitySet="TIPO" />
+      <End Role="BIEN" EntitySet="BIEN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
