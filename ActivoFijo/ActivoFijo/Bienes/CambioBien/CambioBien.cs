@@ -75,53 +75,6 @@ namespace ActivoFijo.Bienes.NuevoBien
 
         }
 
-        private void ActualizarBtn_Click(object sender, EventArgs e) //Boton Mostrar
-        {
-            Clasificacion.SelectedIndex = 0;
-            Marca.SelectedIndex = 0;
-            Estado.SelectedIndex = 0;
-            int ID = Convert.ToInt32((NumeroBien.Text).ToString());
-            activo_fijoEntities activo_FijoEntities = new activo_fijoEntities();
-            var entryPoint = (from Bien in activo_FijoEntities.BIENs
-                              join Administrar in activo_FijoEntities.ADMINISTRARs on Bien.IDBIEN equals Administrar.IDBien
-                              join Marca in activo_FijoEntities.MARCAs on Bien.IDMARCA equals Marca.IDMARCA
-                              join Tipo in activo_FijoEntities.TIPOes on Bien.IDTIPO equals Tipo.IDTIPO
-                              join Estados in activo_FijoEntities.ESTADOes on Bien.IDESTADO equals Estados.IDEstado
-                              where Bien.IDASIGNADO == ID
-                              orderby Bien.IDASIGNADO, Tipo.TIPO1 ascending
-                              select new ConsultaActualizar
-                              {
-                                  NumeroBienAsignado = Bien.IDASIGNADO,
-                                  Descripcion = Bien.NOMBRE,
-                                  Color = Bien.COLOR,
-                                  VidaUtil = Bien.VIDAUTIL,
-                                  Marca = Marca.NOMBREMARCA,
-                                  Estado = Estados.ESTADO1,
-                                  Clasificacion = Tipo.TIPO1,
-                                  FechaDeAdquisicion = Administrar.FECHAADQUISISCION,
-                                  FechaCompra = Administrar.FECHACOMPRA,
-                                  Costo = Administrar.Costo,
-                                  PorcentajeDepreciacion = Bien.PORCENTAGEDEPRECIACION,
-                                  Cantidad = Administrar.CANTIDAD,
-
-                              }).ToList();
-            
-            foreach (var i in entryPoint)
-            {
-                Descripcion.Text = i.Descripcion;
-                Color.Text = i.Color;
-                Marca.SelectedText = i.Marca;
-                Clasificacion.SelectedText = i.Clasificacion;
-                VidaUtil.Value = i.VidaUtil;
-                Estado.SelectedText = i.Estado;
-                Costo.Text = i.Costo.ToString();
-                FechaCompra.Value = i.FechaCompra.Value;
-                FechaAdquisicion.Value = i.FechaDeAdquisicion.Value;
-                Costo.Text = i.Costo.ToString();
-                Porcentaje.Value = i.PorcentajeDepreciacion;
-                Cantidad.Value = Convert.ToInt32(i.Cantidad);
-            }
-        }
         private void UpdateBtn_Click(object sender, EventArgs e)//Boton Actualizar
         {
             //BIEN ActualizarBien = new BIEN();
@@ -144,19 +97,48 @@ namespace ActivoFijo.Bienes.NuevoBien
             Bien.IDESTADO = IDEstado;
             Bien.VIDAUTIL = Convert.ToInt32(VidaUtil.Value);
             Bien.PORCENTAGEDEPRECIACION = Porcentaje.Value;
-
             ADMINISTRAR Admin = activo_FijoEntities.ADMINISTRARs.FirstOrDefault(AdministrarInQuery => AdministrarInQuery.IDBien.Equals(Bien.IDBIEN));
-                //(from AdministrarTabla in activo_FijoEntities.ADMINISTRARs
-                //         where AdministrarTabla.IDBien == Bien.IDBIEN
-                //         select new ADMINISTRAR
-                //         {
-                //             IDUsuario = AdministrarTabla.IDUsuario,
-                //             IDBien = AdministrarTabla.IDBien,
-                //             FECHAADQUISISCION = FechaAdquisicion.Value.Date,
-                //             FECHACOMPRA = FechaCompra.Value.Date,
-                //             Costo = Convert.ToDecimal(Costo.Text),
-                //             CANTIDAD = Convert.ToInt32(Cantidad.Value)
-                //         }).SingleOrDefault();
+            Admin.IDUsuario = Admin.IDUsuario;
+            Admin.IDBien = Bien.IDBIEN;
+            Admin.FECHAADQUISISCION = FechaAdquisicion.Value.Date;
+            Admin.FECHACOMPRA = FechaCompra.Value.Date;
+            Admin.Costo = Convert.ToDecimal(Costo.Text);
+            Admin.CANTIDAD = Convert.ToInt32(Cantidad.Value);
+            activo_FijoEntities.SaveChanges();
+            var entryPoint = (from BienIdQuery in activo_FijoEntities.BIENs
+                              join Administrar in activo_FijoEntities.ADMINISTRARs on BienIdQuery.IDBIEN equals Administrar.IDBien
+                              join Marca in activo_FijoEntities.MARCAs on BienIdQuery.IDMARCA equals Marca.IDMARCA
+                              join Tipo in activo_FijoEntities.TIPOes on BienIdQuery.IDTIPO equals Tipo.IDTIPO
+                              join Estados in activo_FijoEntities.ESTADOes on BienIdQuery.IDESTADO equals Estados.IDEstado
+                              orderby Bien.IDASIGNADO, Tipo.TIPO1 ascending
+                              select new
+                              {
+                                  NumeroBienAsignado = BienIdQuery.IDASIGNADO,
+                                  Descripcion = BienIdQuery.NOMBRE,
+                                  Color = BienIdQuery.COLOR,
+                                  Marca = Marca.NOMBREMARCA,
+                                  Estado = Estados.ESTADO1,
+                                  Clasificacion = Tipo.TIPO1,
+                                  FechaDeAdquisicion = Administrar.FECHAADQUISISCION,
+                                  FechaCompra = Administrar.FECHACOMPRA,
+                                  Costo = Administrar.Costo,
+                                  PorcentajeDepreciacion = BienIdQuery.PORCENTAGEDEPRECIACION,
+                                  Cantidad = Administrar.CANTIDAD,
+
+                              }).ToList();
+            DatabaseDisplay.DataSource = entryPoint.ToList();
+            DatabaseDisplay.Refresh();
+            //(from AdministrarTabla in activo_FijoEntities.ADMINISTRARs
+            //         where AdministrarTabla.IDBien == Bien.IDBIEN
+            //         select new ADMINISTRAR
+            //         {
+            //             IDUsuario = AdministrarTabla.IDUsuario,
+            //             IDBien = AdministrarTabla.IDBien,
+            //             FECHAADQUISISCION = FechaAdquisicion.Value.Date,
+            //             FECHACOMPRA = FechaCompra.Value.Date,
+            //             Costo = Convert.ToDecimal(Costo.Text),
+            //             CANTIDAD = Convert.ToInt32(Cantidad.Value)
+            //         }).SingleOrDefault();
 
             //foreach (BIEN i in entryPoint)
             //{
@@ -193,7 +175,66 @@ namespace ActivoFijo.Bienes.NuevoBien
 
         private void NumeroBien_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Clasificacion.SelectedIndex = 0;
+            Marca.SelectedIndex = 0;
+            Estado.SelectedIndex = 0;
+            int ID = Convert.ToInt32((NumeroBien.Text).ToString());
+            activo_fijoEntities activo_FijoEntities = new activo_fijoEntities();
+            var entryPoint = (from Bien in activo_FijoEntities.BIENs
+                              join Administrar in activo_FijoEntities.ADMINISTRARs on Bien.IDBIEN equals Administrar.IDBien
+                              join Marca in activo_FijoEntities.MARCAs on Bien.IDMARCA equals Marca.IDMARCA
+                              join Tipo in activo_FijoEntities.TIPOes on Bien.IDTIPO equals Tipo.IDTIPO
+                              join Estados in activo_FijoEntities.ESTADOes on Bien.IDESTADO equals Estados.IDEstado
+                              where Bien.IDASIGNADO == ID
+                              orderby Bien.IDASIGNADO, Tipo.TIPO1 ascending
+                              select new ConsultaActualizar
+                              {
+                                  NumeroBienAsignado = Bien.IDASIGNADO,
+                                  Descripcion = Bien.NOMBRE,
+                                  Color = Bien.COLOR,
+                                  VidaUtil = Bien.VIDAUTIL,
+                                  Marca = Marca.NOMBREMARCA,
+                                  Estado = Estados.ESTADO1,
+                                  Clasificacion = Tipo.TIPO1,
+                                  FechaDeAdquisicion = Administrar.FECHAADQUISISCION,
+                                  FechaCompra = Administrar.FECHACOMPRA,
+                                  Costo = Administrar.Costo,
+                                  PorcentajeDepreciacion = Bien.PORCENTAGEDEPRECIACION,
+                                  Cantidad = Administrar.CANTIDAD,
 
+                              }).ToList();
+
+            foreach (var i in entryPoint)
+            {
+                Descripcion.Text = i.Descripcion;
+                Color.Text = i.Color;
+                Marca.SelectedText = i.Marca;
+                Clasificacion.SelectedText = i.Clasificacion;
+                VidaUtil.Value = i.VidaUtil;
+                Estado.SelectedText = i.Estado;
+                Costo.Text = i.Costo.ToString();
+                FechaCompra.Value = i.FechaCompra.Value;
+                FechaAdquisicion.Value = i.FechaDeAdquisicion.Value;
+                Costo.Text = i.Costo.ToString();
+                Porcentaje.Value = i.PorcentajeDepreciacion;
+                Cantidad.Value = Convert.ToInt32(i.Cantidad);
+            }
+        }
+
+        private void AceptarBtn_Click(object sender, EventArgs e)
+        {
+            Login_and_Register.MainMenu mainMenu = new Login_and_Register.MainMenu();
+            mainMenu.MainMenu_Load(Usuario: Usuario);
+            mainMenu.Show();
+            this.Close();
+        }
+
+        private void CancelarBtn_Click(object sender, EventArgs e)
+        {
+            Login_and_Register.MainMenu mainMenu = new Login_and_Register.MainMenu();
+            mainMenu.MainMenu_Load(Usuario: Usuario);
+            mainMenu.Show();
+            this.Close();
         }
     }
 }

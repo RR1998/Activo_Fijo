@@ -87,13 +87,13 @@ namespace ActivoFijo.ActivoFijoCalc
                             Aux.FechaDeAdquisicion = v.FechaDeAdquisicion;
                             Aux.FechaCompra = v.FechaCompra;
                             //Aux.Costo = $"{v.Costo: C}";
-                            Aux.Costo = v.Costo.ToString("C2");
+                            Aux.Costo = v.Costo.ToString(format: "C2");
                             //Aux.PorcentajeDepreciacion = $"{(float)v.PorcentajeDepreciacion: P}";
                             Aux.PorcentajeDepreciacion = string.Format(provider: CultureInfo.InvariantCulture, format: "{0: #0.##%}", arg0: (double)v.PorcentajeDepreciacion * 0.01);
                             Aux.FechaFinConsulta = v.FechaFinConsulta;
                             Aux.DepreciacionAcumulada = Aux.Costo;
                             //Aux.ValorDepreciadoFecha = $"{0.00: C}";
-                            Aux.ValorDepreciadoFecha = 0.00.ToString("C2");
+                            Aux.ValorDepreciadoFecha = 0.00.ToString(format: "C2");
                             Aux.Cantidad = v.Cantidad;
                         }
                         else
@@ -107,13 +107,13 @@ namespace ActivoFijo.ActivoFijoCalc
                             Aux.FechaDeAdquisicion = v.FechaDeAdquisicion;
                             Aux.FechaCompra = v.FechaCompra;
                             //Aux.Costo = $"{(float)v.Costo: C}";
-                            Aux.Costo = v.Costo.ToString("C2");
+                            Aux.Costo = v.Costo.ToString(format: "C2");
                             //Aux.PorcentajeDepreciacion = $"{(float)v.PorcentajeDepreciacion: P}";
                             Aux.PorcentajeDepreciacion = string.Format(provider: CultureInfo.InvariantCulture, format: "{0: #0.##%}", arg0: (double)v.PorcentajeDepreciacion * 0.01);
                             Aux.FechaFinConsulta = v.FechaFinConsulta;
-                            Aux.DepreciacionAcumulada = v.DepreciacionAcumulada.ToString("C2");
+                            Aux.DepreciacionAcumulada = v.DepreciacionAcumulada.ToString(format: "C2");
                             //Aux.ValorDepreciadoFecha = $"{(float)v.ValorDepreciadoFecha: C}";
-                            Aux.ValorDepreciadoFecha = v.ValorDepreciadoFecha.ToString("C2");
+                            Aux.ValorDepreciadoFecha = v.ValorDepreciadoFecha.ToString(format: "C2");
                             Aux.Cantidad = v.Cantidad;
                         }
                         Consulta.Add(item: Aux);
