@@ -21,11 +21,9 @@ namespace ActivoFijo.Login_and_Register
             {
                 Name = name; Value = value;
             }
-            public override string ToString()
-            {
+            public override string ToString() =>
                 // Generates the text shown in the combo box
-                return Name;
-            }
+                Name;
         }
         public MainMenu()
         {
@@ -40,28 +38,28 @@ namespace ActivoFijo.Login_and_Register
             tp.AutoPopDelay = 2000;
             tp.InitialDelay = 1000;
             tp.ReshowDelay = 500;
-            UsuarioAux.IDUSUARIO = Convert.ToInt32(activo_FijoEntities.USUARIOs.Where(User => User.USUARIO1 == Usuario).Select(User => User.IDUSUARIO).First());
+            UsuarioAux.IDUSUARIO = Convert.ToInt32(value: activo_FijoEntities.USUARIOs.Where(User => User.USUARIO1 == Usuario).Select(User => User.IDUSUARIO).First());
             tp.SetToolTip(Opciones, "Seleccione la opcion que desea utilizar y luego presione el boton aceptar");
             NombreUsuario.Text = Usuario;//puede cambiar para ser el nombre real del usuario o sol oel username
             NUsuario.Text = UsuarioAux.IDUSUARIO.ToString();
             switch (Usuario)
             {
                 case ("CBRC Contabilidad"):
-                    Opciones.Items.Add(new Item("Ver depreciacion", 1));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Bienes", 2));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Clasificacion de bienes", 3));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Marca", 4));//Hecho
-                    Opciones.Items.Add(new Item("Actualizar Bien", 5));//Hecho
+                    Opciones.Items.Add(new Item(name: "Ver depreciacion", value: 1));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Bienes", value: 2));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Clasificacion de bienes", value: 3));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Marca", value: 4));//Hecho
+                    Opciones.Items.Add(new Item(name: "Actualizar Bien", value: 5));//Hecho
                     break;
                 case ("CBRC Administrador"):
                     //Opciones.Items.Add(new Item("Ver activo fijo por producto", 1));
-                    Opciones.Items.Add(new Item("Ver Activo fijo por clasificacion", 1));
-                    Opciones.Items.Add(new Item("Ver depeciacion por periodos", 2));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Bienes", 3));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Clasificacion de bienes", 4));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Marca", 5));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Usuario", 6));
-                    Opciones.Items.Add(new Item("Actualizar Bien", 7));//Hecho
+                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 1));
+                    Opciones.Items.Add(new Item(name: "Ver depeciacion por periodos", value: 2));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Bienes", value: 3));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Clasificacion de bienes", value: 4));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Marca", value: 5));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Usuario", value: 6));
+                    Opciones.Items.Add(new Item(name: "Actualizar Bien", value: 7));//Hecho
                     break;
                 case ("CBRB Taller"):
                     //Opciones.Items.Add(new Item("Ver activo fijo por producto", 1));
@@ -73,15 +71,15 @@ namespace ActivoFijo.Login_and_Register
                     break;
                 case ("CBRC SuperUsuario"):
                     //Opciones.Items.Add(new Item("Ver activo fijo por producto", 1));
-                    Opciones.Items.Add(new Item("Ver Activo fijo por clasificacion", 1));
-                    Opciones.Items.Add(new Item("Ver depeciacion por periodos", 2));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Bienes", 3));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Clasificacion de bienes", 4));//Hecho
-                    Opciones.Items.Add(new Item("Agregar Marca", 5));//Hecho
+                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 1));
+                    Opciones.Items.Add(new Item(name: "Ver depeciacion por periodos", value: 2));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Bienes", value: 3));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Clasificacion de bienes", value: 4));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Marca", value: 5));//Hecho
                     break;
                 default://falta terminar
-                    Opciones.Items.Add(new Item("Ver activo fijo por producto", 1));
-                    Opciones.Items.Add(new Item("Ver Activo fijo por clasificacion", 2));
+                    Opciones.Items.Add(new Item(name: "Ver activo fijo por producto", value: 1));
+                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 2));
                     break;
             }
         }
@@ -119,55 +117,58 @@ namespace ActivoFijo.Login_and_Register
         private void Aceptar_Click(object sender, EventArgs e)
         {
             Item Opcion = (Item)Opciones.SelectedItem;
-            string Opc = Opcion.Name.ToString();
+            string Opc = "";
+            try
+            {
+                Opc = Opcion.Name.ToString();
+            }
+            catch (Exception)
+            {
+                Opc = "";
+            }
             string Usuario = NombreUsuario.Text.ToString();
             switch (Opc)
             {
-                case "Ver depreciacion":/*Falta Funcionalidad*/
+                case "Ver depreciacion":
                     this.Hide();
-                    ActivoFijoCalculator activoFijoCalc = new ActivoFijoCalculator(Usuario);
+                    ActivoFijoCalculator activoFijoCalc = new ActivoFijoCalculator(User: Usuario);
                     activoFijoCalc.Show();
                     break;
                 case "Agregar Bienes":
                     this.Hide();
-                    BienRegister bien = new BienRegister(Usuario);/*Falta Funcionalidad*/
+                    BienRegister bien = new BienRegister(User: Usuario);
                     bien.Bien_Load();
                     bien.Show();
                     break;
                 case "Agregar Clasificacion de bienes":
                     this.Hide();
-                    Clasificacion clasificacion = new Clasificacion(Usuario);
+                    Clasificacion clasificacion = new Clasificacion(User: Usuario);
                     clasificacion.Show();
                     this.Show();
                     break;
                 case "Agregar Marca":
                     this.Hide();
-                    MarcaForm marca = new MarcaForm(Usuario);
+                    MarcaForm marca = new MarcaForm(User: Usuario);
                     marca.Show();
                     this.Show();
                     break;
                 case "Agregar Usuario":
                     this.Hide();
-                    Registro registro = new Registro(Usuario);
+                    Registro registro = new Registro(User: Usuario);
                     registro.Show();
-                    this.Show();
                     break;
                 case "Actualizar Bien":
                     this.Hide();
-                    CambioBien cambioBien = new CambioBien(Usuario);
+                    CambioBien cambioBien = new CambioBien(User: Usuario);
                     cambioBien.Show();
-                    this.Show();
                     break;
                 default:
-                    MessageBox.Show("Por favor seleccione una opcion", "Advertencia",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(text: "Por favor seleccione una opcion", caption: "Advertencia", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
                     break;
             }
         }
 
-        private void Cancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void Cancelar_Click(object sender, EventArgs e) => Close();
 
         private void Ayuda_Click(object sender, EventArgs e)
         {

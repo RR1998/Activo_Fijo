@@ -86,14 +86,13 @@ namespace ActivoFijo.Login_and_Register
         private void Aceptar_Click_1(object sender, EventArgs e)
         {
             string Nombretxt, DUItxt, Usertxt, Passwordtxt;
-            char[] DUIchar;
             int cont = 9;
             int Validar = 0;
             Nombretxt = Nombre.Text;
             DUItxt = DUI.Text;
             Usertxt = User.Text;
             Passwordtxt = Password.Text;
-            DUIchar = DUItxt.ToCharArray(0, 10);
+            char[] DUIchar = DUItxt.ToCharArray(0, 10);
             while (cont > 1)
             {
                 string AuxS = DUIchar[9 - cont].ToString();
@@ -101,7 +100,6 @@ namespace ActivoFijo.Login_and_Register
                 Validar += cont * Aux;
                 cont--;
             }
-            MessageBox.Show(Validar.ToString(), "akjf", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Validar = Validar % 10;
             Validar = 10 - Validar;
             if(Validar == DUIchar[9])

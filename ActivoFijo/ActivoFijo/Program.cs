@@ -15,7 +15,7 @@ namespace ActivoFijo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CambioBien(""));
+            Application.Run(new Login());
         }
     }
 }
