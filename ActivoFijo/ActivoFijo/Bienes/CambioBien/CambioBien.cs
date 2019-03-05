@@ -154,7 +154,6 @@ namespace ActivoFijo.Bienes.NuevoBien
                                   PorcentajeDepreciacion = Bien.PORCENTAGEDEPRECIACION,
                                   Cantidad = Administrar.CANTIDAD,
                               }).ToList();
-
             foreach (var i in entryPoint)
             {
                 Descripcion.Text = i.Descripcion;
