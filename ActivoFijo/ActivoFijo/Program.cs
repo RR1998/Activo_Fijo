@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using ActivoFijo.Login_and_Register;
+using ActivoFijo.Bienes.NuevoBien;
 
 namespace ActivoFijo
 {
@@ -14,7 +15,7 @@ namespace ActivoFijo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new CambioBien(""));
         }
     }
 }

@@ -84,6 +84,7 @@
     <Compile Include="ActivoFijoCalc\ActivoFijoCalculator.Designer.cs">
       <DependentUpon>ActivoFijoCalculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="AuxiliaryClasses\ConsultaActualizar.cs" />
     <Compile Include="AuxiliaryClasses\ConsultaConvertida.cs" />
     <Compile Include="AuxiliaryClasses\ConsultaDepreciacion.cs" />
     <Compile Include="AuxiliaryClasses\ExcelGenerator.cs" />

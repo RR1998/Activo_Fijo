@@ -25,3 +25,4 @@ C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\bin\Debug\System.Inte
 C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\bin\Debug\Remotion.Linq.xml
 C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\bin\Debug\System.Interactive.Async.xml
 C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Debug\ActivoFijo.csprojAssemblyReference.cache
+C:\Users\Roberto\Desktop\Activo Fijo\ActivoFijo\ActivoFijo\obj\Debug\ActivoFijo.Bienes.NuevoBien.CambioBien.resources

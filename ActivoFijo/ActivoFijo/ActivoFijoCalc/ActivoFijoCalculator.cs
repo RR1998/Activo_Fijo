@@ -69,7 +69,7 @@ namespace ActivoFijo.ActivoFijoCalc
                                           Costo = Administrar.Costo,
                                           PorcentajeDepreciacion = Bien.PORCENTAGEDEPRECIACION,
                                           FechaFinConsulta = FechaFinal.Value,
-                                          DepreciacionAcumulada = (Administrar.Costo * (Bien.PORCENTAGEDEPRECIACION / 100) * (FechaFin - Administrar.FECHAADQUISISCION.Value.Year)),
+                                          DepreciacionAcumulada = Administrar.Costo * (Bien.PORCENTAGEDEPRECIACION / 100) * (FechaFin - Administrar.FECHAADQUISISCION.Value.Year),
                                           ValorDepreciadoFecha = Administrar.Costo - (Administrar.Costo * (Bien.PORCENTAGEDEPRECIACION / 100) * (FechaFin - Administrar.FECHAADQUISISCION.Value.Year)),
                                           Cantidad = Administrar.CANTIDAD,
                                       }).ToList();
