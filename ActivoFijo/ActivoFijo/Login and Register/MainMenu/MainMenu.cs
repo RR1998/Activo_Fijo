@@ -53,13 +53,14 @@ namespace ActivoFijo.Login_and_Register
                     break;
                 case ("CBRC Administrador"):
                     //Opciones.Items.Add(new Item("Ver activo fijo por producto", 1));
-                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 1));
+                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 1));//Hecho
                     Opciones.Items.Add(new Item(name: "Ver depeciacion por periodos", value: 2));//Hecho
                     Opciones.Items.Add(new Item(name: "Agregar Bienes", value: 3));//Hecho
                     Opciones.Items.Add(new Item(name: "Agregar Clasificacion de bienes", value: 4));//Hecho
                     Opciones.Items.Add(new Item(name: "Agregar Marca", value: 5));//Hecho
-                    Opciones.Items.Add(new Item(name: "Agregar Usuario", value: 6));
-                    Opciones.Items.Add(new Item(name: "Actualizar Bien", value: 7));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Usuario", value: 6));//Hecho
+                    Opciones.Items.Add(new Item(name: "Alterar Usuario", value: 7));
+                    Opciones.Items.Add(new Item(name: "Actualizar Bien", value: 8));//Hecho
                     break;
                 case ("CBRB Taller"):
                     //Opciones.Items.Add(new Item("Ver activo fijo por producto", 1));
@@ -71,15 +72,20 @@ namespace ActivoFijo.Login_and_Register
                     break;
                 case ("CBRC SuperUsuario"):
                     //Opciones.Items.Add(new Item("Ver activo fijo por producto", 1));
-                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 1));
+                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 1));//Hecho
                     Opciones.Items.Add(new Item(name: "Ver depeciacion por periodos", value: 2));//Hecho
                     Opciones.Items.Add(new Item(name: "Agregar Bienes", value: 3));//Hecho
                     Opciones.Items.Add(new Item(name: "Agregar Clasificacion de bienes", value: 4));//Hecho
                     Opciones.Items.Add(new Item(name: "Agregar Marca", value: 5));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Usuario", value: 6));
+                    Opciones.Items.Add(new Item(name: "Alterar Usuario", value: 7));
+                    Opciones.Items.Add(new Item(name: "Actualizar Bien", value: 8));//Hecho
                     break;
                 default://falta terminar
-                    Opciones.Items.Add(new Item(name: "Ver activo fijo por producto", value: 1));
-                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 2));
+                    Opciones.Items.Add(new Item(name: "Ver Activo fijo por clasificacion", value: 1));
+                    Opciones.Items.Add(new Item(name: "Agregar Bienes", value: 2));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Clasificacion de bienes", value: 3));//Hecho
+                    Opciones.Items.Add(new Item(name: "Agregar Marca", value: 4));//Hecho
                     break;
             }
         }
@@ -156,6 +162,8 @@ namespace ActivoFijo.Login_and_Register
                     this.Hide();
                     Registro registro = new Registro(User: Usuario);
                     registro.Show();
+                    break;
+                case "Alterar Usuario"://Falta poner funcion
                     break;
                 case "Actualizar Bien":
                     this.Hide();

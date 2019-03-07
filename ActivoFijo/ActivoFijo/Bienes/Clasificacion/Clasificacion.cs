@@ -43,10 +43,7 @@ namespace ActivoFijo.Bienes.Clasificacion
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            BienRegister bien = new BienRegister(Usuario);
-            bien.Bien_Load();
-            bien.Show();
+            this.Close();
         }
     }
 }

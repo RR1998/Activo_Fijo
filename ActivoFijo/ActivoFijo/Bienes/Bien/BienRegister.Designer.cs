@@ -59,6 +59,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.EstadoCombobox = new System.Windows.Forms.ComboBox();
             this.IDAsignado = new System.Windows.Forms.Label();
+            this.RefreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VidaUtil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cantidad)).BeginInit();
             this.SuspendLayout();
@@ -339,11 +340,22 @@
             this.IDAsignado.TabIndex = 33;
             this.IDAsignado.Text = "Default";
             // 
+            // RefreshButton
+            // 
+            this.RefreshButton.Location = new System.Drawing.Point(487, 323);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(112, 23);
+            this.RefreshButton.TabIndex = 34;
+            this.RefreshButton.Text = "Actualizar";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
             // BienRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 358);
+            this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.IDAsignado);
             this.Controls.Add(this.EstadoCombobox);
             this.Controls.Add(this.label11);
@@ -416,5 +428,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox EstadoCombobox;
         private System.Windows.Forms.Label IDAsignado;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }

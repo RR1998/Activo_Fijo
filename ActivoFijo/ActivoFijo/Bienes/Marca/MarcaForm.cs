@@ -30,18 +30,12 @@ namespace ActivoFijo.Bienes.Marca
             activo_fijoEntities activo_FijoEntitiesB = new activo_fijoEntities();
             activo_FijoEntitiesB.MARCAs.Add(marca);
             activo_FijoEntitiesB.SaveChanges();
-            this.Hide();
-            BienRegister bien = new BienRegister(Usuario);
-            bien.Bien_Load();
-            bien.Show();
+            this.Close();
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            BienRegister bien = new BienRegister(Usuario);
-            bien.Bien_Load();
-            bien.Show();
+            this.Close();
         }
     }
 }

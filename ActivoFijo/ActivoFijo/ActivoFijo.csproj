@@ -146,6 +146,12 @@
     <Compile Include="DatabaseModule\USUARIO.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Login and Register\AlterarUsuario\AlterarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login and Register\AlterarUsuario\AlterarUsuario.Designer.cs">
+      <DependentUpon>AlterarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login and Register\Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bienes\Marca\MarcaForm.resx">
       <DependentUpon>MarcaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login and Register\AlterarUsuario\AlterarUsuario.resx">
+      <DependentUpon>AlterarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login and Register\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

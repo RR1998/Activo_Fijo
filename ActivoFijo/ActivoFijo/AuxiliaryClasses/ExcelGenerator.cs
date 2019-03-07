@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 
@@ -10,10 +11,11 @@ namespace ActivoFijo.AuxiliaryClasses
 {
     class ExcelGenerator
     {
-        public void ExportToExcel(List<ConsultaConvertida> Consulta)
+        public void ExportToExcel(List<ConsultaConvertida> Consulta, string ClasificacionDeConsulta)
         {
             string Clasificacion = "";
-            string Fecha = "";
+            DateTime Fecha = new DateTime();
+            string Anio = "";
             System.Data.DataTable Excel = new System.Data.DataTable();
             Excel.Columns.Add(columnName: "ID", type: typeof(int));
             Excel.Columns.Add(columnName: "Descripcion", type: typeof(string));
@@ -32,12 +34,17 @@ namespace ActivoFijo.AuxiliaryClasses
             foreach (var v in Consulta)
             {
                 Clasificacion = v.Clasificacion;
-                Fecha = v.FechaFinConsulta.ToString();
+                Fecha = v.FechaFinConsulta;
                 Excel.Rows.Add(v.NumeroBienAsignado, v.Descripcion, v.Color, v.Marca, v.Estado, v.Clasificacion, v.FechaDeAdquisicion ?? DateTime.Now, v.FechaCompra ?? DateTime.Now, v.Costo, v.PorcentajeDepreciacion,
                                 v.FechaFinConsulta, v.DepreciacionAcumulada ,v.ValorDepreciadoFecha, v.Cantidad);
+                Anio = v.FechaFinConsulta.Year.ToString();
             }
             try
             {
+                string Month, Day, Year;
+                Month = Fecha.Month.ToString();
+                Day = Fecha.Day.ToString();
+                Year = Fecha.Year.ToString();
                 Microsoft.Office.Interop.Excel.Application Archivo = new Microsoft.Office.Interop.Excel.Application();
                 Workbook Workbook;
                 Worksheet Worksheet;
@@ -46,9 +53,9 @@ namespace ActivoFijo.AuxiliaryClasses
                 Archivo.DisplayAlerts = false;
                 Workbook = Archivo.Workbooks.Add(Template: Type.Missing);
                 Worksheet = (Worksheet)Workbook.ActiveSheet;
-                Worksheet.Name = "Activo Fijo";
+                Worksheet.Name = ClasificacionDeConsulta;
                 Worksheet.Range[Worksheet.Cells[1, 1], Cell2: Worksheet.Cells[1, 13]].Merge();
-                Worksheet.Cells[1, 1] = $"CONSTRUCTORA BERNARD R.C. SA. DE C.V. Clasificacion: {Clasificacion} Fecha: {Fecha}";
+                Worksheet.Cells[1, 1] = $"CONSTRUCTORA BERNARD R.C. SA. DE C.V. Clasificacion: {Clasificacion} Fecha: {Month}/{Day}/{Year}";
                 //Worksheet.Cells[1, 1] = "ID";
                 //Worksheet.Cells[1, 2] = "Descripcion";
                 //Worksheet.Cells[1, 3] = "Color";
@@ -104,8 +111,7 @@ namespace ActivoFijo.AuxiliaryClasses
                 border.Weight = 2d;
 
                 Cellrange = Worksheet.Range[Cell1: Worksheet.Cells[RowIndex: 1, ColumnIndex: 1], Cell2: Worksheet.Cells[RowIndex: 2, ColumnIndex: Excel.Columns.Count]];
-
-                Workbook.SaveAs("..\\Desktop\\ActivoFijo.xlsx");
+                Workbook.SaveAs("..\\Desktop\\ActivoFijo " + Anio + " " + Clasificacion +".xlsx");
                 Workbook.Close();
                 Archivo.Quit();
             }

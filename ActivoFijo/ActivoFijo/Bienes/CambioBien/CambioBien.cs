@@ -130,7 +130,7 @@ namespace ActivoFijo.Bienes.NuevoBien
             Clasificacion.SelectedIndex = 0;
             Marca.SelectedIndex = 0;
             Estado.SelectedIndex = 0;
-            int ID = Convert.ToInt32((NumeroBien.Text).ToString());
+            int ID = Convert.ToInt32(NumeroBien.Text);
             activo_fijoEntities activo_FijoEntities = new activo_fijoEntities();
             var entryPoint = (from Bien in activo_FijoEntities.BIENs
                               join Administrar in activo_FijoEntities.ADMINISTRARs on Bien.IDBIEN equals Administrar.IDBien

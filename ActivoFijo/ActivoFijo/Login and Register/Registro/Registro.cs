@@ -166,7 +166,7 @@ namespace ActivoFijo.Login_and_Register
                     MessageBox.Show("Su nombre de usuario no debe poseer ninguno de los siguientes caracteres: !@#$%^&*()_-+={}[]|\'';:?/>.<,", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch (System.ArgumentException e)
+            catch (System.ArgumentException)
             {
                 MessageBox.Show("Ha ingresado mal sus datos por favor corrobore que esten bien escritos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 MessageBox.Show(User);

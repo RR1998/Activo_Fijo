@@ -26,6 +26,11 @@ namespace ActivoFijo.Bienes.Bien
 
         public void Bien_Load()
         {
+            Reload();
+        }
+
+        private void Reload()
+        {
             UserNameLabel.Text = Usuario;
             USUARIO UsuarioAux = new USUARIO();
             activo_fijoEntities activo_FijoEntities = new activo_fijoEntities();
@@ -42,7 +47,7 @@ namespace ActivoFijo.Bienes.Bien
             {
                 IDAsignado.Text = (Convert.ToInt32(value: activo_FijoEntities.BIENs.Max(selector: Bien => Bien.IDBIEN)) + 1).ToString();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 IDAsignado.Text = "1";
             }
@@ -256,6 +261,11 @@ namespace ActivoFijo.Bienes.Bien
         private void Actualizar_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            this.Reload();
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 using ActivoFijo.Login_and_Register;
-using ActivoFijo.Bienes.NuevoBien;
+using ActivoFijo.Login_and_Register.AlterarUsuario;
 
 namespace ActivoFijo
 {
