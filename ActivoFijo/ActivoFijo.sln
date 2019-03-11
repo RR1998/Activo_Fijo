@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivoFijo", "ActivoFijo\ActivoFijo.csproj", "{6A3575E7-5080-4CFA-A70E-C64FED84AB69}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ActivoFijoSetup", "ActivoFijoSetup\ActivoFijoSetup.vdproj", "{CB162CF0-4F45-451A-9963-CB43F3843452}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ActivoFijoSetup", "ActivoFijoSetup\ActivoFijoSetup.vdproj", "{EBA64F9A-14D4-44A8-9F38-4C1AAFCD5F00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{6A3575E7-5080-4CFA-A70E-C64FED84AB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A3575E7-5080-4CFA-A70E-C64FED84AB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A3575E7-5080-4CFA-A70E-C64FED84AB69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB162CF0-4F45-451A-9963-CB43F3843452}.Debug|Any CPU.ActiveCfg = Debug
-		{CB162CF0-4F45-451A-9963-CB43F3843452}.Release|Any CPU.ActiveCfg = Release
+		{EBA64F9A-14D4-44A8-9F38-4C1AAFCD5F00}.Debug|Any CPU.ActiveCfg = Debug
+		{EBA64F9A-14D4-44A8-9F38-4C1AAFCD5F00}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
