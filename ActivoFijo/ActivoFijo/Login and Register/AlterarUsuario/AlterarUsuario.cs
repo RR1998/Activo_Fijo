@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -115,6 +116,9 @@ namespace ActivoFijo.Login_and_Register.AlterarUsuario
         private void DeleteUser(int ID)
         {
             activo_fijoEntities activo_FijoEntities = new activo_fijoEntities();
+            USUARIO User = new USUARIO { IDUSUARIO = Convert.ToInt32(IDUsuario.Text) };
+            activo_FijoEntities.Entry(User).State = EntityState.Deleted;
+            activo_FijoEntities.SaveChanges();
         }
         private void UpdateUser(int ID)
         {
